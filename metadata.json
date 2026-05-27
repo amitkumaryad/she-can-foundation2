@@ -1,0 +1,6 @@
+{
+  "name": "She Can Foundation Portal",
+  "description": "An interactive landing page, registration form, and administrative database dashboard built for the She Can Foundation internship program.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
