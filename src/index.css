@@ -6,11 +6,37 @@
   --font-display: "Plus Jakarta Sans", "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
   
-  --color-brand-50: #fff1f2;
-  --color-brand-100: #ffe4e6;
-  --color-brand-200: #fecdd3;
-  --color-brand-500: #f43f5e;
-  --color-brand-600: #e11d48;
-  --color-brand-700: #be123c;
-  --color-brand-800: #9f1239;
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-500: #4f46e5;
+  --color-brand-600: #4338ca;
+  --color-brand-700: #3730a3;
+  --color-brand-800: #312e81;
 }
+
+/* Custom Geometric helper classes for sharp borders and custom styling alignment */
+.geometric-corner {
+  border-radius: 0px !important;
+}
+
+.geometric-input {
+  border-radius: 0px !important;
+  border-color: #e2e8f0;
+  border-bottom-width: 2px;
+  background-color: transparent;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.geometric-input:focus {
+  border-color: #4f46e5;
+  outline: none;
+}
+
+.geometric-btn {
+  border-radius: 0px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: all 0.2s ease-in-out;
+}
+

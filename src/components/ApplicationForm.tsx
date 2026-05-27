@@ -163,46 +163,50 @@ export function ApplicationForm({ onSubmitSuccess }: ApplicationFormProps) {
 
   return (
     <div id="registration-form-section" className="mx-auto max-w-3xl px-4 py-12">
-      <div className="overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-xl shadow-slate-100/40">
-        {/* Card Header Banner */}
-        <div className="bg-slate-900 px-6 py-8 text-center text-white sm:px-10">
-          <span className="inline-flex items-center space-x-1.5 rounded-full bg-rose-500/20 px-3 py-1 font-sans text-xs font-bold text-rose-300">
-            <Sparkles className="h-3.5 w-3.5" />
+      <div className="overflow-hidden rounded-none border-2 border-slate-900 bg-white shadow-2xl">
+        {/* Card Header Banner in Indigo */}
+        <div className="bg-indigo-950 px-6 py-10 text-center text-white sm:px-10 relative">
+          {/* Subtle Geometric Backing Element */}
+          <div className="absolute top-0 right-0 w-24 h-24 border-[12px] border-indigo-900/30 -mr-6 -mt-6"></div>
+          
+          <span className="inline-flex items-center space-x-1.5 rounded-none border border-indigo-700 bg-indigo-900/50 px-3 py-1 font-sans text-[10px] font-bold uppercase tracking-widest text-indigo-200">
+            <Sparkles className="h-3 w-3 text-indigo-400" />
             <span>Apply Now • Cohort 2026</span>
           </span>
-          <h2 className="mt-3 font-display text-2xl font-extrabold tracking-tight sm:text-3xl">
-            She Can Foundation Internship
+          <h2 className="mt-4 font-display text-2xl font-extrabold uppercase tracking-wider sm:text-3xl">
+            Candidate Registration
           </h2>
-          <p className="mx-auto mt-2 max-w-md font-sans text-xs text-slate-300">
-            Submit your candidate registration form to be paired with expert mentors and gain industry experience.
+          <div className="my-3 w-12 h-1 bg-indigo-500 mx-auto"></div>
+          <p className="mx-auto mt-2 max-w-sm font-sans text-xs text-indigo-250 leading-relaxed">
+            Partner with dedicated, experienced tech coaches and secure a mapped development pathway.
           </p>
         </div>
 
         {/* Content Form */}
-        <form onSubmit={handleSubmit} className="p-6 space-y-6 sm:p-10">
+        <form onSubmit={handleSubmit} className="p-6 space-y-8 sm:p-10">
           {/* Error Panel if Server returns error */}
           {serverError && (
-            <div className="rounded-xl bg-rose-50 border border-rose-200 p-4 font-sans text-sm text-rose-800">
-              <strong className="font-semibold text-rose-950 block mb-1">Submission Failed</strong>
+            <div className="rounded-none bg-rose-50 border-l-4 border-rose-600 p-4 font-sans text-xs text-rose-800">
+              <strong className="font-bold uppercase tracking-wider text-rose-950 block mb-1">Submission Failed</strong>
               {serverError}
             </div>
           )}
 
           {/* Grid Blocks for Personal Details */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {/* 1. Full name */}
-            <div className="space-y-1.5">
-              <label htmlFor="fullName" className="block font-display text-xs font-bold text-slate-700 uppercase tracking-wider">
-                Full Name <span className="text-rose-500">*</span>
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+            {/* 1. Full name with custom border-b styling */}
+            <div className="space-y-1.5 text-left">
+              <label htmlFor="fullName" className="block font-display text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                Full Name <span className="text-indigo-605 text-indigo-600">*</span>
               </label>
-              <div className="relative rounded-xl border border-slate-200 focus-within:border-rose-500 focus-within:ring-2 focus-within:ring-rose-100 transition">
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                  <User className="h-4.5 w-4.5 text-slate-400" />
+              <div className="relative border-b-2 border-slate-200 focus-within:border-indigo-600 transition duration-150">
+                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center">
+                  <User className="h-4 w-4 text-slate-400" />
                 </div>
                 <input
                   type="text"
                   id="fullName"
-                  placeholder="e.g. Maya Lin"
+                  placeholder="e.g. Alex Rivera"
                   value={fullName}
                   onChange={(e) => {
                     setFullName(e.target.value);
@@ -210,27 +214,27 @@ export function ApplicationForm({ onSubmitSuccess }: ApplicationFormProps) {
                       setErrors((prev) => ({ ...prev, fullName: "" }));
                     }
                   }}
-                  className="block w-full rounded-xl bg-transparent py-2.5 pl-10 pr-3 font-sans text-sm text-slate-800 placeholder-slate-400 outline-none"
+                  className="block w-full py-3 pl-7 pr-3 font-sans text-sm text-slate-800 placeholder-slate-350 outline-none bg-transparent"
                 />
               </div>
               {errors.fullName && (
-                <p className="font-sans text-xs font-medium text-rose-500">{errors.fullName}</p>
+                <p className="font-sans text-[11px] font-semibold text-rose-600">{errors.fullName}</p>
               )}
             </div>
 
-            {/* 2. Email Address */}
-            <div className="space-y-1.5">
-              <label htmlFor="email" className="block font-display text-xs font-bold text-slate-700 uppercase tracking-wider">
-                Email Address <span className="text-rose-500">*</span>
+            {/* 2. Email Address with border-b styling */}
+            <div className="space-y-1.5 text-left">
+              <label htmlFor="email" className="block font-display text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                Email Address <span className="text-indigo-600">*</span>
               </label>
-              <div className="relative rounded-xl border border-slate-200 focus-within:border-rose-500 focus-within:ring-2 focus-within:ring-rose-100 transition">
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                  <Mail className="h-4.5 w-4.5 text-slate-400" />
+              <div className="relative border-b-2 border-slate-200 focus-within:border-indigo-600 transition duration-150">
+                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center">
+                  <Mail className="h-4 w-4 text-slate-400" />
                 </div>
                 <input
                   type="email"
                   id="email"
-                  placeholder="name@example.com"
+                  placeholder="alex@example.com"
                   value={email}
                   onChange={(e) => {
                     setEmail(e.target.value);
@@ -238,21 +242,21 @@ export function ApplicationForm({ onSubmitSuccess }: ApplicationFormProps) {
                       setErrors((prev) => ({ ...prev, email: "" }));
                     }
                   }}
-                  className="block w-full rounded-xl bg-transparent py-2.5 pl-10 pr-3 font-sans text-sm text-slate-800 placeholder-slate-400 outline-none"
+                  className="block w-full py-3 pl-7 pr-3 font-sans text-sm text-slate-800 placeholder-slate-350 outline-none bg-transparent"
                 />
               </div>
               {errors.email && (
-                <p className="font-sans text-xs font-medium text-rose-500">{errors.email}</p>
+                <p className="font-sans text-[11px] font-semibold text-rose-600">{errors.email}</p>
               )}
             </div>
           </div>
 
-          {/* 3. Segmented Interest Track Selector */}
-          <div className="space-y-2.5">
-            <span className="block font-display text-xs font-bold text-slate-700 uppercase tracking-wider">
-              1. Choose a Technical Pathway <span className="text-rose-500">*</span>
+          {/* 3. Geometric Pathway Selector */}
+          <div className="space-y-3.5 text-left">
+            <span className="block font-display text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              1. Pathway Major Interest <span className="text-indigo-600">*</span>
             </span>
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {tracksConfig.map((t) => {
                 const IconComp = t.icon;
                 const isSelected = track === t.id;
@@ -261,22 +265,22 @@ export function ApplicationForm({ onSubmitSuccess }: ApplicationFormProps) {
                     key={t.id}
                     type="button"
                     onClick={() => setTrack(t.id)}
-                    className={`flex items-start space-x-3 rounded-2xl border p-4 text-left transition duration-200 cursor-pointer ${
+                    className={`flex items-start space-x-3 rounded-none border-2 p-4 text-left transition duration-150 cursor-pointer ${
                       isSelected 
-                        ? "border-rose-500 bg-rose-50/40 ring-1 ring-rose-500/30 shadow-xs" 
-                        : "border-slate-100 bg-slate-50/50 hover:bg-slate-50 hover:border-slate-200"
+                        ? "border-indigo-600 bg-indigo-50/20 ring-1 ring-indigo-600/10" 
+                        : "border-slate-100 bg-slate-50/40 hover:bg-slate-50 hover:border-slate-300"
                     }`}
                   >
-                    <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-transparent ${
-                      isSelected ? "bg-rose-500 text-white" : "bg-slate-100 text-slate-500"
+                    <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-none border ${
+                      isSelected ? "bg-indigo-900 border-indigo-750 text-white" : "bg-white border-slate-200 text-slate-400"
                     }`}>
-                      <IconComp className="h-5 w-5" />
+                      <IconComp className="h-4.5 w-4.5" />
                     </div>
                     <div>
-                      <h4 className={`font-display text-sm font-bold ${isSelected ? "text-slate-900" : "text-slate-700"}`}>
+                      <h4 className={`font-display text-xs font-bold uppercase tracking-wider ${isSelected ? "text-slate-900" : "text-slate-700"}`}>
                         {t.title}
                       </h4>
-                      <p className="mt-0.5 font-sans text-xs text-slate-500 leading-tight">
+                      <p className="mt-1 font-sans text-[11px] text-slate-450 leading-tight">
                         {t.desc}
                       </p>
                     </div>
@@ -286,12 +290,12 @@ export function ApplicationForm({ onSubmitSuccess }: ApplicationFormProps) {
             </div>
           </div>
 
-          {/* 4. Experience Level Section */}
-          <div className="space-y-2.5">
-            <span className="block font-display text-xs font-bold text-slate-700 uppercase tracking-wider">
-              2. Your Current Experience / Background <span className="text-rose-500">*</span>
+          {/* 4. Experience Level Section with sharp buttons */}
+          <div className="space-y-3.5 text-left">
+            <span className="block font-display text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              2. Technical Background Level <span className="text-indigo-600">*</span>
             </span>
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               {experienceConfig.map((exp) => {
                 const isSelected = experience === exp.id;
                 return (
@@ -299,16 +303,16 @@ export function ApplicationForm({ onSubmitSuccess }: ApplicationFormProps) {
                     key={exp.id}
                     type="button"
                     onClick={() => setExperience(exp.id)}
-                    className={`rounded-2xl border p-4 text-center transition cursor-pointer ${
+                    className={`rounded-none border-2 p-4 text-left transition duration-150 cursor-pointer ${
                       isSelected
-                        ? "border-rose-500 bg-rose-50/20 ring-1 ring-rose-500/30"
-                        : "border-slate-100 bg-slate-50/50 hover:bg-slate-50 hover:border-slate-200"
+                        ? "border-indigo-600 bg-indigo-50/20"
+                        : "border-slate-100 bg-slate-50/45 hover:bg-slate-50 hover:border-slate-350"
                     }`}
                   >
-                    <span className={`block font-display text-sm font-bold ${isSelected ? "text-slate-900" : "text-slate-700"}`}>
+                    <span className={`block font-display text-xs font-bold uppercase tracking-wide ${isSelected ? "text-slate-900" : "text-slate-600"}`}>
                       {exp.title}
                     </span>
-                    <span className="mt-0.5 block font-sans text-[11px] text-slate-500 leading-tight">
+                    <span className="mt-1.5 block font-sans text-[11px] text-slate-400 leading-tight">
                       {exp.sub}
                     </span>
                   </button>
@@ -318,23 +322,23 @@ export function ApplicationForm({ onSubmitSuccess }: ApplicationFormProps) {
           </div>
 
           {/* 5. LinkedIn / Portfolio URL (Optional) */}
-          <div className="space-y-1.5">
+          <div className="space-y-1.5 text-left">
             <div className="flex items-center justify-between">
-              <label htmlFor="linkedin" className="block font-display text-xs font-bold text-slate-700 uppercase tracking-wider">
-                LinkedIn / GitHub/ Portfolio URL
+              <label htmlFor="linkedin" className="block font-display text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                Portfolios, GitHub OR LinkedIn link
               </label>
-              <span className="font-sans text-[10px] text-slate-400 font-semibold uppercase tracking-wider">
+              <span className="font-sans text-[9px] text-slate-400 font-bold uppercase tracking-wider">
                 Optional
               </span>
             </div>
-            <div className="relative rounded-xl border border-slate-200 focus-within:border-rose-500 focus-within:ring-2 focus-within:ring-rose-100 transition">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <Linkedin className="h-4.5 w-4.5 text-slate-400" />
+            <div className="relative border-b-2 border-slate-200 focus-within:border-indigo-600 transition duration-150">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center">
+                <Linkedin className="h-4 w-4 text-slate-400" />
               </div>
               <input
                 type="url"
                 id="linkedin"
-                placeholder="https://linkedin.com/in/yourprofile"
+                placeholder="https://linkedin.com/in/alexrivera"
                 value={linkedin}
                 onChange={(e) => {
                   setLinkedin(e.target.value);
@@ -342,41 +346,35 @@ export function ApplicationForm({ onSubmitSuccess }: ApplicationFormProps) {
                     setErrors((prev) => ({ ...prev, linkedin: "" }));
                   }
                 }}
-                className="block w-full rounded-xl bg-transparent py-2.5 pl-10 pr-3 font-sans text-sm text-slate-800 placeholder-slate-400 outline-none"
+                className="block w-full py-3 pl-7 pr-3 font-sans text-sm text-slate-800 placeholder-slate-350 outline-none bg-transparent"
               />
             </div>
             {errors.linkedin ? (
-              <p className="font-sans text-xs font-medium text-rose-500">{errors.linkedin}</p>
+              <p className="font-sans text-[11px] font-semibold text-rose-600">{errors.linkedin}</p>
             ) : (
               <p className="font-sans text-[11px] text-slate-400">
-                Helps us learn more about your technical portfolio, studies, or blog.
+                Optionally link your profile so evaluators can review engineering repositories.
               </p>
             )}
           </div>
 
-          {/* 6. Message / Motivation */}
-          <div className="space-y-1.5 font-sans">
+          {/* 6. Message / Motivation Statement with block container */}
+          <div className="space-y-1.5 font-sans text-left">
             <div className="flex items-center justify-between">
-              <label htmlFor="message" className="block font-display text-xs font-bold text-slate-700 uppercase tracking-wider">
-                Statement of Motivation <span className="text-rose-500">*</span>
+              <label htmlFor="message" className="block font-display text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                What drives you to join She Can? <span className="text-indigo-600">*</span>
               </label>
-              <span className={`text-[10px] uppercase font-bold tracking-wider ${
-                message.length >= 10 ? "text-emerald-500" : "text-slate-400"
+              <span className={`text-[10px] uppercase font-bold tracking-widest ${
+                message.length >= 10 ? "text-emerald-650 font-bold" : "text-slate-400"
               }`}>
-                {message.length} chars
+                {message.length} characters
               </span>
             </div>
-            <p className="text-xs text-slate-500 mb-1">
-              Please share why you wish to join this program and what goals or skills you hope to accomplish.
-            </p>
-            <div className="relative rounded-xl border border-slate-200 focus-within:border-rose-500 focus-within:ring-2 focus-within:ring-rose-100 transition">
-              <div className="pointer-events-none absolute top-3 left-3">
-                <MessageSquare className="h-4.5 w-4.5 text-slate-400" />
-              </div>
+            <div className="relative border-2 border-slate-100 bg-slate-50/50 p-1 focus-within:border-indigo-600 transition">
               <textarea
                 id="message"
                 rows={4}
-                placeholder="e.g., I'm passionate about developing software to solve ecological challenges. I want to build clean React architectures, master server communication, and learn under structured engineering coaching..."
+                placeholder="How will this mentorship help you reach your tech goals?"
                 value={message}
                 onChange={(e) => {
                   setMessage(e.target.value);
@@ -384,42 +382,39 @@ export function ApplicationForm({ onSubmitSuccess }: ApplicationFormProps) {
                     setErrors((prev) => ({ ...prev, message: "" }));
                   }
                 }}
-                className="block w-full rounded-xl bg-transparent py-3 pl-10 pr-3 text-sm text-slate-800 placeholder-slate-400 outline-none resize-none"
+                className="block w-full p-3 text-sm text-slate-800 placeholder-slate-400 outline-none resize-none bg-transparent"
               />
             </div>
             {errors.message && (
-              <p className="text-xs font-medium text-rose-500">{errors.message}</p>
+              <p className="text-[11px] font-semibold text-rose-600">{errors.message}</p>
             )}
           </div>
 
           {/* Informational Guidelines Card */}
-          <div className="flex items-start space-x-2.5 rounded-xl bg-slate-50 p-4 border border-slate-100 text-xs text-slate-500">
-            <Info className="h-4 w-4 text-slate-400 mt-0.5 shrink-0" />
+          <div className="flex items-start space-x-3 rounded-none bg-slate-50 p-4 border border-slate-200 text-xs text-slate-500 leading-relaxed">
+            <Info className="h-4.5 w-4.5 text-indigo-500 mt-0.5 shrink-0" />
             <p>
-              By submitting this form, you certify the information provided is correct. Admissions are granted on a rolling basis. All women/non-binary coders are strongly encouraged to submit.
+              By transmitting this form, you verify the accuracy of your answers. Reviewers and committee staff select candidates on a rolling basis. Women and gender-marginalized tech coders are prioritized.
             </p>
           </div>
 
-          {/* Button Submit Trigger */}
+          {/* Button Submit Trigger - Bold upper tracked geometric button */}
           <button
             type="submit"
             disabled={isSubmitting}
-            className={`flex w-full items-center justify-center space-x-2 rounded-xl py-4 font-display text-sm font-bold text-white shadow-md shadow-rose-200 transition ${
+            className={`w-full font-display text-xs font-bold uppercase tracking-[0.22em] text-white py-4 px-6 transition-all duration-150 rounded-none cursor-pointer ${
               isSubmitting 
-                ? "bg-rose-400 cursor-not-allowed" 
-                : "bg-rose-500 hover:bg-rose-600 active:bg-rose-700 hover:shadow-lg hover:shadow-rose-300/40"
+                ? "bg-slate-500 cursor-not-allowed" 
+                : "bg-slate-900 hover:bg-indigo-700 active:bg-indigo-900 shadow-md"
             }`}
           >
             {isSubmitting ? (
-              <>
+              <div className="flex items-center justify-center space-x-2">
                 <Loader2 className="h-4 w-4 animate-spin" />
-                <span>Submitting Your Application...</span>
-              </>
+                <span>Generating Entry...</span>
+              </div>
             ) : (
-              <>
-                <CheckCircle2 className="h-4.5 w-4.5" />
-                <span>Submit Form Response</span>
-              </>
+              <span>Submit Inquiry</span>
             )}
           </button>
         </form>
